@@ -61,6 +61,22 @@ class LawsController < ApplicationController
     end
   end
 
+  def like
+    @law = Law.find(params[:id])
+    if !(current_user.likes @law) then
+      @law.liked_by current_user
+    end
+    redirect_to @law
+  end
+
+  def dislike
+    @law = Law.find(params[:id])
+    if !(current_user.dislikes @law) then
+      @law.disliked_by current_user
+    end
+    redirect_to @law
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_law
