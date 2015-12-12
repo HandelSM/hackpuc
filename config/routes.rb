@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "laws#like"
       put "dislike", to: "laws#dislike"
+      put "skip", to: "laws#nextLaw"
     end
   end
   resources :comments do

@@ -1,6 +1,6 @@
 class LawsController < ApplicationController
 
-  before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :destroy]
   before_action :set_law, only: [:show, :edit, :update, :destroy]
 
   # GET /laws
@@ -12,6 +12,8 @@ class LawsController < ApplicationController
   # GET /laws/1
   # GET /laws/1.json
   def show
+    @law = Law.find(params[:id])
+    @lawsTopic = Topic.find(@law.topic_id)
   end
 
   # GET /laws/new
@@ -65,7 +67,7 @@ class LawsController < ApplicationController
 
   def like
     @law = Law.find(params[:id])
-    if !(current_user.likes @law) then
+    if !(current_user.voted_for? @law) then
       @law.liked_by current_user
     end
     nextLaw
@@ -73,7 +75,7 @@ class LawsController < ApplicationController
 
   def dislike
     @law = Law.find(params[:id])
-    if !(current_user.dislikes @law) then
+    if !(current_user.voted_for? @law) then
       @law.disliked_by current_user
     end
     nextLaw
@@ -82,6 +84,12 @@ class LawsController < ApplicationController
   def nextLaw
     randomID = rand(Law.all.count) + 1
     @lawNext = Law.find(randomID)
+    if current_user.votes.size >= Law.all.count then
+      redirect_to new_law_path and return
+    end
+    if current_user.likes @lawNext then
+      nextLaw
+    end
     redirect_to @lawNext
   end
 
@@ -107,7 +115,7 @@ class LawsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def law_params
-      params.require(:law).permit(:description)
+      params.require(:law).permit(:description, :topic_id, :politician_id)
     end
 
     def signed_in_user
