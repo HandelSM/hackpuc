@@ -3,8 +3,8 @@ class  IndexController < ApplicationController
   # For APIs, you may want to use :null_session instead.
 
 
-  def teste
-		render text: "Bem-vindo ao Politicapp"
+  def index
+		
 	end
 
 
