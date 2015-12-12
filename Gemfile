@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
+#Like/dislike gem
+gem 'acts_as_votable', '~> 0.10.0'
+
 #Timezone, windows problem
 gem 'tzinfo-data'
 
