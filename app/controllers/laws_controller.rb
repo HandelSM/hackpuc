@@ -86,7 +86,7 @@ class LawsController < ApplicationController
     randomID = rand(Law.all.count)
     @lawNext = Law.order(:id)[randomID]
     if current_user.votes.size >= Law.all.count then
-      redirect_to new_law_path and return
+      redirect_to semLeis_url and return
     end
     if current_user.likes @lawNext then
       nextLaw
