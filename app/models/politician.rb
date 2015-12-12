@@ -1,4 +1,5 @@
 class Politician < ActiveRecord::Base
+	
 	has_many :laws
 
 	validates :name, presence: true
