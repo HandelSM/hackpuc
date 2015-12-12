@@ -7,6 +7,8 @@ class LawsController < ApplicationController
   # GET /laws.json
   def index
     @laws = Law.all
+
+    @laws.sort_by{ |h| h[:get_likes.size] }
   end
 
   # GET /laws/1
