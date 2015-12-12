@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController]
+class TopicsController < ApplicationController
   before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
@@ -88,5 +88,9 @@ class TopicsController < ApplicationController]
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
       params.require(:topic).permit(:name)
+    end
+
+    def signed_in_user
+      redirect_to login_url, notice: "Você não está logado." unless logged_in?
     end
 end

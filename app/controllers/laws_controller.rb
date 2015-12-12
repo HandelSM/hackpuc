@@ -13,8 +13,8 @@ class LawsController < ApplicationController
   # GET /laws/1.json
   def show
     @law = Law.find(params[:id])
-    @lawsTopic = Topic.find(@law.topic_id)
-    @comments = @law.comments
+    #@lawsTopic = Topic.find(@law.topic_id)
+    #@comments = @law.comments
   end
 
   # GET /laws/new
@@ -92,6 +92,7 @@ class LawsController < ApplicationController
       nextLaw
     end
     redirect_to @lawNext
+    byebug
   end
 
   def comment
@@ -110,7 +111,7 @@ class LawsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def law_params
-      params.require(:law).permit(:description, :topic_id, :politician_id)
+      params.require(:law).permit(:description, :politician_id)
     end
 
     def signed_in_user

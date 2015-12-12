@@ -13,8 +13,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     randomID = rand(Law.all.count) + 1
     @law = Law.find(randomID)
-    @lawsTopic = Topic.find(@law.topic_id)
+    #@lawsTopic = Topic.find(@law.topic_id)
     redirect_to @law
+
+    #redirect_to lawNext_url
   end
 
   # GET /users/new
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         flash[:success] = "Bem-vindo à Politicagem!"
-        format.html { redirect_to topicsIndex_url, notice: 'Usuário foi criado com sucesso.' }
+        format.html { redirect_to @user, notice: 'Usuário foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

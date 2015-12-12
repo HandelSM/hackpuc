@@ -16,11 +16,6 @@
     <%= f.text_area :description, class: "mdl-textfield__input", for: "sample5" %>
   </div>
   <div class="field">
-    <%= f.label :topic_id, "Tópico" %><br>
-    <% topics =  Topic.all.map{ |f| [f.name, f.id] } %>
-    <%= f.select :topic_id, options_for_select(topics), {} %><br>
-  </div>
-  <div class="field">
     <%= f.label :politician_id, "Político" %><br>
     <% politicians =  Politician.all.map{ |f| [f.name, f.id] } %>
     <%= f.select :politician_id, options_for_select(politicians) %><br>
