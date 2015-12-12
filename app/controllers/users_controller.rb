@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    randomID = rand(Law.all.count) + 1
+    @law = Law.find(randomID)
   end
 
   # GET /users/new
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         flash[:success] = "Bem-vindo à Politicagem!"
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to topicsIndex_url, notice: 'Usuário foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

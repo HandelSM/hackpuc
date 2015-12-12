@@ -61,6 +61,23 @@ class TopicsController < ApplicationController
     end
   end
 
+  def like
+    @topic = Topic.find(params[:id])
+    if !(current_user.likes @topic) then
+      @topic.liked_by current_user
+    end
+    redirect_to @topic
+  end
+
+  def dislike
+    @topic = topic.find(params[:id])
+    if !(current_user.dislikes @topic) then
+      @topic.disliked_by current_user
+    end
+    redirect_to @topic
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic

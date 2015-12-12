@@ -13,13 +13,19 @@ Rails.application.routes.draw do
       put "dislike", to: "comments#dislike"
     end
   end
-  resources :topics
+  resources :topics do
+    member do
+      put "like", to: "topics#like"
+      put "dislike", to: "topics#dislike"
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#index'
 
+  get    'topicsIndex' => 'topics#index'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

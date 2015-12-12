@@ -1,4 +1,6 @@
 class LawsController < ApplicationController
+
+  before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_law, only: [:show, :edit, :update, :destroy]
 
   # GET /laws
@@ -92,5 +94,9 @@ class LawsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def law_params
       params.require(:law).permit(:description)
+    end
+
+    def signed_in_user
+      redirect_to login_url, notice: "Você não está logado." unless logged_in?
     end
 end
