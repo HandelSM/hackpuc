@@ -82,8 +82,8 @@ class LawsController < ApplicationController
   end
 
   def nextLaw
-    randomID = rand(Law.all.count) + 1
-    @lawNext = Law.find(randomID)
+    randomID = rand(Law.all.count)
+    @lawNext = Law.order(:id)[randomID]
     if current_user.votes.size >= Law.all.count then
       redirect_to new_law_path and return
     end
