@@ -1,1 +1,10 @@
-<%= render 'shared/user_laws' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @law.description %>
+</p>
+
+
+<%= link_to 'Like', like_law_path(@law), method: :put %>
+<%= link_to 'Dislike', dislike_law_path(@law), method: :put %>
