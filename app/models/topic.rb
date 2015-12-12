@@ -1,6 +1,6 @@
 class Topic < ActiveRecord::Base
 	
-	has_and_belongs_to_many :laws
+	has_many :laws
 
 	acts_as_votable
 

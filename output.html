@@ -1,0 +1,16 @@
+<div id="tasks"> 
+	<% _slim_controls1 = f.simple_fields_for :tasks do |task| %>
+		<%= ::Temple::Utils.escape_html((render 'task_fields', :f => task)) %> 
+	<% end %>
+	<%= ::Temple::Utils.escape_html((_slim_controls1)) %>
+	<div class="links"> 
+		<%= ::Temple::Utils.escape_html((link_to_add_association 'add task', f, :tasks)) %> 
+	</div>
+</div>
+
+
+<div class="nested-fields"> 
+	<%= ::Temple::Utils.escape_html((f.input :name)) %> 
+	<%= ::Temple::Utils.escape_html((f.input :description)) %> 
+	<%= ::Temple::Utils.escape_html((f.input :done, :as => :boolean)) %> 
+	<%= ::Temple::Utils.escape_html((link_to_remove_association "remove task", f)) %> </div>

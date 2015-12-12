@@ -1,0 +1,11 @@
+#tasks
+  = f.simple_fields_for :tasks do |task|
+    = render 'task_fields', :f => task
+  .links
+    = link_to_add_association 'add task', f, :tasks
+    
+.nested-fields
+  = f.input :name
+  = f.input :description
+  = f.input :done, :as => :boolean
+  = link_to_remove_association "remove task", f

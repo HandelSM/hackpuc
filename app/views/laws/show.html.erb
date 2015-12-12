@@ -1,10 +1,19 @@
 <p id="notice"><%= notice %></p>
-
+<center>
 <p>
-  <strong>Description:</strong>
+  <strong>"</strong>
   <%= @law.description %>
+  <strong>"</strong>
+</p>
+<p> 
+  <strong>#</strong>
+  <%= @lawsTopic.name %>
 </p>
 
-
-<%= link_to 'Like', like_law_path(@law), method: :put %>
-<%= link_to 'Dislike', dislike_law_path(@law), method: :put %>
+<%= link_to 'Like', like_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" %>
+<%= link_to 'Pular', skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" %>
+<%= link_to 'Dislike', dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" %>
+<br>
+<br>
+<%= link_to 'Dê sua opnião :)', new_comment_path %>
+</center>
