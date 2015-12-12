@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get 'semLeis' => 'laws#noLaws'
+
   resources :users
 
   # Example of regular route:
