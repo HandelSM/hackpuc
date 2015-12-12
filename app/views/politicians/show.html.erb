@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @politician.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @politician.email %>
+</p>
+
+<%= link_to 'Edit', edit_politician_path(@politician) %> |
+<%= link_to 'Back', politicians_path %>
