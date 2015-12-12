@@ -10,13 +10,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
-    randomID = rand(Law.all.count) + 1
-    @law = Law.find(randomID)
+    #@user = User.find(params[:id])
+    #randomID = rand(Law.all.count) + 1
+    #@law = Law.find(randomID)
     #@lawsTopic = Topic.find(@law.topic_id)
-    redirect_to @law
+    #redirect_to @law
 
-    #redirect_to lawNext_url
+    redirect_to lawNext_url
   end
 
   # GET /users/new

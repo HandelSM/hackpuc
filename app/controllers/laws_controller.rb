@@ -88,11 +88,11 @@ class LawsController < ApplicationController
     if current_user.votes.size >= Law.all.count then
       redirect_to semLeis_url and return
     end
-    if current_user.likes @lawNext then
+    if current_user.voted_for? @lawNext then
       nextLaw
+      return
     end
-    redirect_to @lawNext and return
-    byebug
+    redirect_to @lawNext
   end
 
   def comment
