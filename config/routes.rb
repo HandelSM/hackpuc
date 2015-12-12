@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :politicians
+  resources :laws do
+    member do
+      put "like", to: "laws#like"
+      put "dislike", to: "laws#dislike"
+    end
+  end
   resources :comments
   resources :topics
   # The priority is based upon order of creation: first created -> highest priority.
