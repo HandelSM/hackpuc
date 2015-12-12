@@ -6,12 +6,13 @@ Rails.application.routes.draw do
       put "dislike", to: "laws#dislike"
     end
   end
+  resources :comments
   resources :topics
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'application#teste'
+  root 'index#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
