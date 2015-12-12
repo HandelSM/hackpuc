@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     randomID = rand(Law.all.count) + 1
     @law = Law.find(randomID)
+    @lawsTopic = Topic.find(@law.topic_id)
     redirect_to @law
   end
 
