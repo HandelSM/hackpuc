@@ -15,5 +15,14 @@
 <%= link_to 'Dislike', dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" %>
 <br>
 <br>
-<%= link_to 'Dê sua opnião :)', new_comment_path %>
+<%= link_to 'Dê sua opinião :)', new_comment_path %>
+
+<div class="col-md-8">
+    <% if @law.comments.any? %>
+      <h3>Comments (<%= @law.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+    <% end %>
+  </div>
 </center>

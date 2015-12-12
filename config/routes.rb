@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   root 'index#index'
 
   get    'topicsIndex' => 'topics#index'
+  get    'lawNext' => 'laws#nextLaw'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

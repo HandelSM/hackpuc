@@ -1,6 +1,6 @@
 class LawsController < ApplicationController
 
-  before_action :signed_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_law, only: [:show, :edit, :update, :destroy]
 
   # GET /laws
@@ -14,6 +14,7 @@ class LawsController < ApplicationController
   def show
     @law = Law.find(params[:id])
     @lawsTopic = Topic.find(@law.topic_id)
+    @comments = @law.comments
   end
 
   # GET /laws/new
@@ -95,16 +96,10 @@ class LawsController < ApplicationController
 
   def comment
     @coment = Comment.new(comment_params)
+    @law = Law.find(params[:id])
+    @user = current_user
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to @comment
   end
 
   private

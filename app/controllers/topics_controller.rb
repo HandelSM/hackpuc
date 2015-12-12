@@ -1,4 +1,5 @@
-class TopicsController < ApplicationController
+class TopicsController < ApplicationController]
+  before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics
