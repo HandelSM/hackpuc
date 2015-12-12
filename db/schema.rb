@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20151212022819) do
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "laws", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
@@ -22,10 +28,6 @@ ActiveRecord::Schema.define(version: 20151212022819) do
   create_table "politicians", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +36,15 @@ ActiveRecord::Schema.define(version: 20151212022819) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
   create_table "votes", force: :cascade do |t|

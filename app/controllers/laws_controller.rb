@@ -66,7 +66,7 @@ class LawsController < ApplicationController
     if !(current_user.likes @law) then
       @law.liked_by current_user
     end
-    redirect_to @law
+    nextLaw
   end
 
   def dislike
@@ -74,7 +74,13 @@ class LawsController < ApplicationController
     if !(current_user.dislikes @law) then
       @law.disliked_by current_user
     end
-    redirect_to @law
+    nextLaw
+  end
+
+  def nextLaw
+    randomID = rand(Law.all.count) + 1
+    @lawNext = Law.find(randomID)
+    redirect_to @lawNext
   end
 
   private

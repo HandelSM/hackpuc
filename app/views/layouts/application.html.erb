@@ -16,25 +16,29 @@
 	</style>
 
 	<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-	  <header class="mdl-layout__header mdl-layout__header--waterfall">
+	  	<header class="mdl-layout__header mdl-layout__header--waterfall">
 	    <!-- Top row, always visible -->
-	    <div class="mdl-layout__header-row">
-	      <!-- Title -->
-	      <span class="mdl-layout-title">Politicagem</span>
-	    </div>
-	  </header>
-	  <div class="mdl-layout__drawer">
-	    <span class="mdl-layout-title">Politicagem</span>
-	    <nav class="mdl-navigation">
-	      <a class="mdl-navigation__link" href="">Novos Debates</a>
-	      <a class="mdl-navigation__link" href="">Politicos Favoritos</a>
-	      <a class="mdl-navigation__link" href="">LELO LELO</a>
-	      <a class="mdl-navigation__link" href="">Sign Out</a>
-	    </nav>
-	  </div>
-	  <main class="mdl-layout__content">
-	    <div class="page-content"><%=yield%></div>
-	  </main>
+	    	<div class="mdl-layout__header-row">
+	      		<span class="mdl-layout-title">Politicagem</span>
+	   		</div>
+	  	</header>
+
+	   	<div class="mdl-layout__drawer">
+	    	<span class="mdl-layout-title">Politicagem</span>
+	    	<nav class="mdl-navigation">
+	    		<% if logged_in? %>
+	            	<%= link_to "Novos Debates", '#', class: "mdl-navigation__link" %>
+	            	<%= link_to "Log out", logout_path, method: "delete", class: "mdl-navigation__link" %>
+	      		<% else %>
+	            	<%= link_to "Entrar", login_path, class: "mdl-navigation__link" %>
+	            	<%= link_to "Inscrever-se", signup_path, method: "delete", class: "mdl-navigation__link" %>
+	      		<% end %>
+	    	</nav>
+	  	</div>
+
+	  	<main class="mdl-layout__content">
+	    	<div class="page-content"><%=yield%></div>
+	  	</main>
 	</div>
 
 </body>
