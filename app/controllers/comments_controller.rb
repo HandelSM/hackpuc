@@ -61,6 +61,22 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like
+    @comment = Comment.find(params[:id])
+    if !(current_user.likes @comment) then
+      @comment.liked_by current_user
+    end
+    redirect_to @comment
+  end
+
+  def dislike
+    @comment = Comment.find(params[:id])
+    if !(current_user.dislikes @comment) then
+      @comment.disliked_by current_user
+    end
+    redirect_to @comment
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
