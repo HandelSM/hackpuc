@@ -2,13 +2,40 @@
 <html>
 <head>
   <title>Politicagem</title>
-  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<!-- Uses a header that contracts as the page scrolls down. -->
+	<style>
+		.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  
+		{
+	  		padding-right: 0;
+		}
+	</style>
 
-<%= yield %>
+	<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
+	  <header class="mdl-layout__header mdl-layout__header--waterfall">
+	    <!-- Top row, always visible -->
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	      <span class="mdl-layout-title">Politicagem</span>
+	    </div>
+	  </header>
+	  <div class="mdl-layout__drawer">
+	    <span class="mdl-layout-title">Politicagem</span>
+	    <nav class="mdl-navigation">
+	      <a class="mdl-navigation__link" href="">Novos Debates</a>
+	      <a class="mdl-navigation__link" href="">Politicos Favoritos</a>
+	      <a class="mdl-navigation__link" href="">LELO LELO</a>
+	      <a class="mdl-navigation__link" href="">Sign Out</a>
+	    </nav>
+	  </div>
+	  <main class="mdl-layout__content">
+	    <div class="page-content"><%=yield%></div>
+	  </main>
+	</div>
 
 </body>
 </html>
