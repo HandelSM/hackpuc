@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="mdl-cell--13-col mdl-grid">
+	<div class = "mdl-cell mdl-cell--4-col"></div>
+	<div class = "mdl-cell mdl-cell--4-col">
+  		<strong>"</strong>
+  		<%= @law.description %>
+  		<strong>"</strong>
+	</div>
+</div>
+
+<div class="mdl-cell--13-col mdl-grid">
+	<div class = "mdl-cell mdl-cell--4-col"></div>
+	<div class = "mdl-cell mdl-cell--1-col"></div>
+	<div class = "mdl-cell mdl-cell--1-col">
+	<%= link_to 'Like', like_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" %>
+	</div>
+	<div class = "mdl-cell mdl-cell--1-col"></div>
+	<div class = "mdl-cell mdl-cell--1-col">
+	<%= link_to 'Dislike', dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" %>
+	</div>
+</div>
+<div class="mdl-cell--13-col mdl-grid">
+	<div class = "mdl-cell mdl-cell--6-col"></div>
+	<div class = "mdl-cell mdl-cell--1-col">
+	<%= link_to 'Pular', skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" %>
+	</div>
+</div>
