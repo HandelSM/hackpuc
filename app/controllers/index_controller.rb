@@ -7,7 +7,7 @@ class  IndexController < ApplicationController
 		if logged_in?
 			randomID = rand(Law.all.count) + 1
     		@law = Law.find(randomID)
-			render 'laws/show'
+			redirect_to @law
 		else
 			render 'index/index'
 			
