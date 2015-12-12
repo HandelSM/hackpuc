@@ -93,7 +93,7 @@ class LawsController < ApplicationController
     if current_user.likes @lawNext then
       nextLaw
     end
-    redirect_to @lawNext
+    redirect_to @lawNext and return
     byebug
   end
 
