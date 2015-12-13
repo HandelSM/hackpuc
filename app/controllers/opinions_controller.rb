@@ -23,6 +23,8 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.find(params[:id])
     if not(current_user.voted_for? @opinion) then
       @opinion.liked_by current_user
+    elsif current_user.voted_up_on? @opinion then
+      @opinion.unliked_by current_user
     end
     redirect_to @opinion.law
   end
@@ -31,7 +33,10 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.find(params[:id])
     if not(current_user.voted_for? @opinion) then
       @opinion.disliked_by current_user
+    elsif current_user.voted_down_on? @opinion then
+      @opinion.undisliked_by current_user
     end
+
     redirect_to @opinion.law
   end
   private

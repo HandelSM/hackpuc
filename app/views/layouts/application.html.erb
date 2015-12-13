@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AlphaBuild</title>
+	<title>Voz</title>
 	<%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -27,7 +27,7 @@
 		  	<header class="mdl-layout__header mdl-layout__header--transparent">
 		    <!-- Top row, always visible -->
 		    	<div class="mdl-layout__header-row">
-		      		<span onclick="location.href='/'" style="cursor: pointer;" class="mdl-layout-title">Alpha</span>
+		      		<span onclick="location.href='/'" style="cursor: pointer;" class="mdl-layout-title"><i class="material-icons">record_voice_over</i> Voz</span>
 		      		<div class="mdl-layout-spacer"></div>
 		      		<nav class="mdl-navigation">
 		      			<h6 class="mdl-navigation__link"> Bem Vindo, <%= current_user.name%>! </h6>
@@ -36,7 +36,7 @@
 		  	</header>
 
 		   	<div class="mdl-layout__drawer">
-		    	<span class="mdl-layout-title">Alpha</span>
+		    	<span class="mdl-layout-title"><i class="material-icons">record_voice_over</i> Voz </span>
 		    	<nav class="mdl-navigation">
 	            	<%= link_to "Estatísticas", estatistica_path, class: "mdl-navigation__link" %>
 	            	<%= link_to "Sair", logout_path, method: "delete", class: "mdl-navigation__link" %>

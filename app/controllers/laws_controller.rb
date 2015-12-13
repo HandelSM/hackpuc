@@ -84,7 +84,7 @@ class LawsController < ApplicationController
   def nextLaw
     randomID = rand(Law.all.count)
     @lawNext = Law.order(:id)[randomID]
-    if current_user.votes.size >= Law.all.count then
+    if current_user.votes.for_type(Law).size >= Law.all.count then
       redirect_to semLeis_url and return
     end
     if current_user.voted_for? @lawNext then
