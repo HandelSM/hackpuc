@@ -5,7 +5,7 @@
 <table class="mdl-data-table mdl-js-data-table">
    <thead>
      <tr>
-      <th class="mdl-data-table__cell--non-numeric">Description</th>
+      <th class="mdl-data-table__cell--non-numeric">Título</th>
       <th>Likes</th>
       <th>Dislikes</th>
      </tr>
@@ -14,7 +14,7 @@
    <tbody>
      <% @laws.each do |law| %>
        <tr>
-        <td class="mdl-data-table__cell--non-numeric"><%= law.description %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= law.title %></td>
         <td class="centralize"><%= law.get_likes.size %></td>
         <td class="itcentralize"><%= law.get_dislikes.size%></td>
        </tr>
