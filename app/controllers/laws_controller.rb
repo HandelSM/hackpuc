@@ -12,6 +12,9 @@ class LawsController < ApplicationController
   # GET /laws/1.json
   def show
     @law = Law.find(params[:id])
+    @user = current_user
+    @opinions = @law.opinions
+    @opinion = Opinion.new(user_id: @user.id, law_id: @law.id) if logged_in?
   end
 
   # GET /laws/new

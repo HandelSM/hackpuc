@@ -26,3 +26,28 @@
 	<%= link_to 'Pular', skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" %>
 	</div>
 </div>
+
+<center>
+	<h5> Deixe sua opinião aqui! \/</h5>
+
+	<div>
+		<aside>
+		  	<section class="user_info">
+		    	<h7><%= current_user.name %></h7>
+		  	</section>
+		  	<section class="opinion_form">
+		    	<%= render 'shared/opinion_form' %>
+		  	</section>
+		</aside>
+	</div>
+</center>
+
+<div class="col-md-8">
+	<% if @user.opinions.any? %>
+	 	<h3>opinions (<%= @user.opinions.count %>)</h3>
+	  	<ol class="opinions">
+	    	<%= render @opinions %>
+	  	</ol>
+	<% end %>
+</div>
+

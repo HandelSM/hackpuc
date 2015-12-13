@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
 
-	has_many :comment, dependent: :destroy
+	has_many :opinions, dependent: :destroy
 
    	acts_as_voter
 

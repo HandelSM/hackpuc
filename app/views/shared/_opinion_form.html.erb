@@ -1,0 +1,9 @@
+<%= form_for(@opinion) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.text_area :content, class: "mdl-textfield__input" %>
+    <%= f.label :content, "Escreva aqui...", class: "mdl-textfield__label" %>
+  </div>
+  <%= f.submit "Postar", class: "mdl-button mdl-js-button mdl-js-ripple-effect" %>
+
+<% end %>
