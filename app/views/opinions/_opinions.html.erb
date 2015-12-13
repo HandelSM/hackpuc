@@ -1,0 +1,7 @@
+<li id="opinion-<%= opinion.id %>">
+  <span class="user"><%= link_to opinion.user.name, opinion.user %></span>
+  <span class="content"><%= opinion.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(opinion.created_at) %> ago.
+  </span>
+</li>
