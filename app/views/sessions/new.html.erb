@@ -1,39 +1,41 @@
 <% provide(:title, "Entrar") %>
 
 <center>
-  <h3>NOME_DO_PROJETO</h3>
+  <div class= "background_div">
+    <h3>NOME_DO_PROJETO</h3>
 
-  <div class="row">
-      <%= form_for(:session, url: login_path) do |f| %>
+    <div class="row">
+        <%= form_for(:session, url: login_path) do |f| %>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= f.label :email, class: "mdl-textfield__label" %>
-          <%= f.email_field :email, class: "mdl-textfield__input" %>
-        </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.label :email, class: "mdl-textfield__label" %>
+            <%= f.email_field :email, class: "mdl-textfield__input" %>
+          </div>
 
-        <br>
+          <br>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= f.label :password, "Senha", class: "mdl-textfield__label" %>
-          <%= f.password_field :password, class: "mdl-textfield__input" %>
-        </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.label :password, "Senha", class: "mdl-textfield__label" %>
+            <%= f.password_field :password, class: "mdl-textfield__input" %>
+          </div>
 
-        <br>
+          <br>
 
-        <%= f.label :remember_me,  class: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect centralize" do %>
-          <%= f.check_box :remember_me, class: "mdl-checkbox__input " %>
-          <span class="mdl-checkbox__label centralizeLabel">Lembrar-me</span>
+          <%= f.label :remember_me,  class: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect centralize" do %>
+            <%= f.check_box :remember_me, class: "mdl-checkbox__input " %>
+            <span class="mdl-checkbox__label centralizeLabel">Lembrar-me</span>
+          <% end %>
+
+          <br> 
+          <br>
+          
+          <%= f.submit "Entrar", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--waterfall" %>
         <% end %>
 
-        <br> 
         <br>
-        
-        <%= f.submit "Entrar", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--waterfall" %>
-      <% end %>
 
-      <br>
-
-      <p>Novo usuário? <%= link_to "Inscreva-se!", signup_path, class: "mdl-button mdl-js-button mdl-js-ripple-effect" %></p>
+        <p>Novo usuário? <%= link_to "Inscreva-se!", signup_path, class: "mdl-button mdl-js-button mdl-js-ripple-effect" %></p>
+    </div>
   </div>
 
 </center>

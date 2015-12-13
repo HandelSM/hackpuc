@@ -14,8 +14,24 @@
  *= require_self
  *= require material
  */
-.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
-{
+ 
+ body
+ {
+ 	background-image: url("palacio-do-planalto.jpg");
+ 	background-color: #000000;
+ 	background-size: 100%;
+ 	background-repeat: no-repeat;
+ }
+
+ .background_div
+ {
+ 	background-color: #FFFFFF;
+ 	height: 100%;
+ 	width: 50%;
+ 	opacity: 0.7;
+ }
+
+.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored{
 	background-color:#69F0AE;
 }
 .mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--coloredRed
