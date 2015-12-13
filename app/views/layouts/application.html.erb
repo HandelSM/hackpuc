@@ -28,16 +28,18 @@
 		    <!-- Top row, always visible -->
 		    	<div class="mdl-layout__header-row">
 		      		<span onclick="location.href='/'" style="cursor: pointer;" class="mdl-layout-title">Alpha</span>
+		      		<div class="mdl-layout-spacer"></div>
+		      		<nav class="mdl-navigation">
+		      			<h6 class="mdl-navigation__link"> Bem Vindo, <%= current_user.name%>! </h6>
+		      		</nav>
 		   		</div>
 		  	</header>
 
 		   	<div class="mdl-layout__drawer">
 		    	<span class="mdl-layout-title">Alpha</span>
 		    	<nav class="mdl-navigation">
-		    		
-		            	<%= link_to "Estatísticas", estatistica_path, class: "mdl-navigation__link" %>
-		            	<%= link_to "Sair", logout_path, method: "delete", class: "mdl-navigation__link" %>
-		     
+	            	<%= link_to "Estatísticas", estatistica_path, class: "mdl-navigation__link" %>
+	            	<%= link_to "Sair", logout_path, method: "delete", class: "mdl-navigation__link" %>
 		    	</nav>
 		  	</div>
 	  	<% end %>

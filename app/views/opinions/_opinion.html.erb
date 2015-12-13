@@ -1,9 +1,6 @@
 <tr>
     <td class="mdl-data-table__cell--non-numeric">
-    	<span class="user"><%= opinion.user.name%></span>
-    	<span class="content"><%= opinion.content %></span>
-    		<span class="timestamp">
-    		Posted <%= time_ago_in_words(opinion.created_at) %> ago.
-    		</span>
+    	<strong><%= opinion.user.name%></strong><br>
+    	<%= opinion.content %>
     </td>
 </tr>

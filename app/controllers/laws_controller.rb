@@ -32,7 +32,7 @@ class LawsController < ApplicationController
 
     respond_to do |format|
       if @law.save
-        format.html { redirect_to @law, notice: 'Law was successfully created.' }
+        format.html { redirect_to @law, notice: 'Lei criada com sucesso' }
         format.json { render :show, status: :created, location: @law }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class LawsController < ApplicationController
   def update
     respond_to do |format|
       if @law.update(law_params)
-        format.html { redirect_to @law, notice: 'Law was successfully updated.' }
+        format.html { redirect_to @law, notice: 'Lei foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @law }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class LawsController < ApplicationController
   def destroy
     @law.destroy
     respond_to do |format|
-      format.html { redirect_to laws_url, notice: 'Law was successfully destroyed.' }
+      format.html { redirect_to laws_url, notice: 'Lei foi destruida com sucesso.' }
       format.json { head :no_content }
     end
   end

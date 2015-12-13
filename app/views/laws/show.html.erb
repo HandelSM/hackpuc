@@ -14,62 +14,81 @@
 </script>
 
 <p id="notice"><%= notice %></p>
-
 <div class="mdl-cell--12-col mdl-grid">
-	<div class = "mdl-cell mdl-cell--4-col"></div>	
-	<div class = "mdl-cell mdl-cell--4-col">
-		<h5> <%= @law.title %></h5>
-  		<strong>"</strong>
-  		<%= @law.description %>
-  		<strong>"</strong>
-	</div>
-</div>
-
-<div class="mdl-cell--12-col mdl-grid">
-	<div class = "mdl-cell mdl-cell--4-col"></div>
+	<div class = "mdl-cell mdl-cell--2-col"></div>
 	<div class = "mdl-cell mdl-cell--1-col"></div>
+	<div class = "background_div_law">
+		<div class="mdl-cell--12-col mdl-grid">
+			<div class = "mdl-cell mdl-cell--4-col"></div>	
+			<div>
+				<h5> <%= @law.title %></h5>
+		  		<span style="font-weight: bold">"</span>
+		  		<span><%= @law.description %></span>
+		  		<span style="font-weight: bold">"</span>
+			</div>
+		</div>
 
-	<div class = "mdl-cell mdl-cell--1-col">
-	<%= link_to 'Like', like_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" %>
-	</div>
-	<div class = "mdl-cell mdl-cell--1-col"></div>
-	<div class = "mdl-cell mdl-cell--1-col">
-	<%= link_to 'Dislike', dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" %>
+		<div class="mdl-cell--12-col mdl-grid">
+			<div class = "mdl-cell mdl-cell--4-col"></div>
+
+			<div class = "mdl-cell mdl-cell--1-col">
+			<%= link_to like_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" do %>
+				 <i class="material-icons">thumb_up</i>
+			<%end%>
+			</div>
+			<div class = "mdl-cell mdl-cell--1-col"></div>
+			<div class = "mdl-cell mdl-cell--1-col">
+			<%= link_to dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" do %>
+							 <i class="material-icons">thumb_down</i>
+			<%end%>
+			</div>
+		</div>
+		<div class="mdl-cell--12-col mdl-grid">
+			<div class = "mdl-cell mdl-cell--4-col"></div>
+			<div class = "mdl-cell mdl-cell--1-col"></div>
+			<div class = "mdl-cell mdl-cell--1-col">
+			<%= link_to skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" do %>
+							 <i class="material-icons">trending_flat</i>
+			<%end%>
+			</div>
+		</div>
+
+		<div class = "mdl-cell--12-col mdl-grid ">
+			<div class = "mdl-cell mdl-cell--4-col"></div>
+
+			<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+		  		<input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input">
+		  		<h5 class="mdl-icon-toggle__label"> Deixe sua opinião aqui! \/ </h5>
+			</label>
+		</div>
+
+		<div class = "mdl-cell--12-col mdl-grid ">
+			<div class = "mdl-cell mdl-cell--1-col"></div>
+			<div class = "mdl-cell mdl-cell--1-col"></div>
+			<div class = "mdl-cell mdl-cell--1-col"></div>
+			<div class = "alignForm">
+				<%= render 'shared/opinion_form'%>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="mdl-cell--12-col mdl-grid">
-	<div class = "mdl-cell mdl-cell--6-col"></div>
-	<div class = "mdl-cell mdl-cell--1-col">
-	<%= link_to 'Pular', skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" %>
+
+<center>
+	<div class = "mdl-cell--12-col mdl-grid">
+		
+		<div class = "mdl-cell mdl-cell--4-col">
+			<div class = "block">
+			<% if @law.opinions.any? %>
+			 	<table style = "opacity: 0.9"class="mdl-data-table mdl-js-data-table mdl-data-table">
+					<tbody>
+		 				<% @opinions.each do |opinion| %>
+		    				<%= render opinion %>
+		 				<%end%>
+			 		</tbody>
+			 	</table>
+			<% end %>
+		</div>
+		</div>
 	</div>
-</div>
 
-<div class = "mdl-cell--12-col mdl-grid ">
-	<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
-  		<input type="checkbox" id="icon-toggle-1" onclick="showOpinions()" class="mdl-icon-toggle__input">
-  		<h5 class="mdl-icon-toggle__label">Deixe sua opinião aqui! \/ </h5>
-	</label>
-</div>
-
-<div class = "mdl-cell--12-col mdl-grid ">
-	<div class = "mdl-cell mdl-cell--1-col"></div>
-	<div class = "alignForm">
-		<%= render 'shared/opinion_form'%>
-	</div>
-</div>
-<div class = "mdl-cell--12-col mdl-grid">
-	<div class = "mdl-cell mdl-cell--4-col"></div>
-	<div class = "mdl-cell mdl-cell--4-col">
-		<% if @law.opinions.any? %>
-		 	<table class="mdl-data-table mdl-js-data-table mdl-data-table">
-				<tbody>
-	 				<% @opinions.each do |opinion| %>
-	    				<%= render opinion %>
-	 				<%end%>
-		 		</tbody>
-		 	</table>
-		<% end %>
-	</div>
-</div>
-
-
+</center>

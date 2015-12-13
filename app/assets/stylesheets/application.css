@@ -23,6 +23,15 @@
  	background-repeat: no-repeat;
  }
 
+ .background_div_law
+ {
+ 	background-color: #FFFFFF;
+ 	height: 100%;
+ 	width: 50%;
+ 	opacity: 0.8;
+ }
+
+
  .background_div
  {
  	background-color: #FFFFFF;
@@ -30,8 +39,13 @@
  	width: 50%;
  	opacity: 0.7;
  }
+ .block
+ {
+ 	width: 50%;
+ }
 
-.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored{
+.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+{
 	background-color:#69F0AE;
 }
 .mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--coloredRed
