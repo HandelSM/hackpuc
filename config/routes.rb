@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  get    'semLeis' => 'laws#noLaws'
   get    'lawNext' => 'laws#nextLaw'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'

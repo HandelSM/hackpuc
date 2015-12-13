@@ -1,11 +1,11 @@
 class LawsController < ApplicationController
-  attr_accessor :law
   before_action :set_law, only: [:show, :edit, :update, :destroy]
 
   # GET /laws
   # GET /laws.json
   def index
-    @laws = Law.all
+    @laws = Law.all    
+    @laws.sort_by{ |h| h[:get_likes.size] }
   end
 
   # GET /laws/1
@@ -64,6 +64,7 @@ class LawsController < ApplicationController
   end
 
   def like
+    @law = Law.find(params[:id])
     if !(current_user.voted_for? @law) then
       @law.liked_by current_user
     end
@@ -71,6 +72,7 @@ class LawsController < ApplicationController
   end
 
   def dislike
+    @law = Law.find(params[:id])
     if !(current_user.voted_for? @law) then
       @law.disliked_by current_user
     end
@@ -81,10 +83,11 @@ class LawsController < ApplicationController
     randomID = rand(Law.all.count)
     @lawNext = Law.order(:id)[randomID]
     if current_user.votes.size >= Law.all.count then
-      redirect_to new_law_path and return
+      redirect_to semLeis_url and return
     end
     if current_user.voted_for? @lawNext then
       nextLaw
+      return
     end
     redirect_to @lawNext
   end

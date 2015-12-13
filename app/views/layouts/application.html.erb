@@ -32,7 +32,7 @@
 	            	<%= link_to "Sair", logout_path, method: "delete", class: "mdl-navigation__link" %>
 	      		<% else %>
 	            	<%= link_to "Entrar", login_path, class: "mdl-navigation__link" %>
-	            	<%= link_to "Inscrever-se", signup_path, method: "delete", class: "mdl-navigation__link" %>
+	            	<%= link_to "Inscrever-se", signup_path, method: "get", class: "mdl-navigation__link" %>
 	      		<% end %>
 	    	</nav>
 	  	</div>
