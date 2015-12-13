@@ -1,12 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rank de Leis</h1>
+<h2>Leis</h2>
 
-<% @laws.each do |law| %>
-  <tr>
-    <td><%= law.description %></td>
-    <td><%= law.get_likes.size %></td>
-    <td><%= link_to 'Show', law %></td>
-  </tr>
-  <br>
-<% end %>
+<table class="mdl-data-table mdl-js-data-table">
+   <thead>
+     <tr>
+      <th class="mdl-data-table__cell--non-numeric">Description</th>
+      <th>Likes</th>
+      <th>Dislikes</th>
+     </tr>
+   </thead>
+ 
+   <tbody>
+     <% @laws.each do |law| %>
+       <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= law.description %></td>
+        <td class="centralize"><%= law.get_likes.size %></td>
+        <td class="centralize"><%= law.get_dislikes.size%></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+ 
+ <br>
