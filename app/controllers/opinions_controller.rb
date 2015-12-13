@@ -5,11 +5,8 @@ class OpinionsController < ApplicationController
   # POST /opinions.json
   def create
     @opinion = Opinion.new(opinion_params)
-    if @opinion.save
-      redirect_to root_url
-    else
-      redirect_to root_url
-    end
+    @opinion.save
+    redirect_to Law.find(@opinion.law_id) and return
   end
 
   # DELETE /opinions/1

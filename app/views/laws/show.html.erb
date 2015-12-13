@@ -1,17 +1,34 @@
+<script>
+	function showOpinions()
+	{
+		var boxChecked = document.getElementById("icon-toggle-1").checked;
+		if(boxChecked)
+		{
+		 	document.getElementById("ops").style.visibility = 'visible'
+	    }
+		else
+		{
+		 	document.getElementById("ops").style.visibility = 'hidden'
+		}
+	}
+</script>
+
 <p id="notice"><%= notice %></p>
 
-<div class="mdl-cell--13-col mdl-grid">
-	<div class = "mdl-cell mdl-cell--4-col"></div>
+<div class="mdl-cell--12-col mdl-grid">
+	<div class = "mdl-cell mdl-cell--4-col"></div>	
 	<div class = "mdl-cell mdl-cell--4-col">
+		<h5> <%= @law.title %></h5>
   		<strong>"</strong>
   		<%= @law.description %>
   		<strong>"</strong>
 	</div>
 </div>
 
-<div class="mdl-cell--13-col mdl-grid">
+<div class="mdl-cell--12-col mdl-grid">
 	<div class = "mdl-cell mdl-cell--4-col"></div>
 	<div class = "mdl-cell mdl-cell--1-col"></div>
+
 	<div class = "mdl-cell mdl-cell--1-col">
 	<%= link_to 'Like', like_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" %>
 	</div>
@@ -20,34 +37,39 @@
 	<%= link_to 'Dislike', dislike_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--coloredRed" %>
 	</div>
 </div>
-<div class="mdl-cell--13-col mdl-grid">
+<div class="mdl-cell--12-col mdl-grid">
 	<div class = "mdl-cell mdl-cell--6-col"></div>
 	<div class = "mdl-cell mdl-cell--1-col">
 	<%= link_to 'Pular', skip_law_path(@law), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" %>
 	</div>
 </div>
 
-<center>
-	<h5> Deixe sua opinião aqui! \/</h5>
-
-	<div>
-		<aside>
-		  	<section class="user_info">
-		    	<h7><%= current_user.name %></h7>
-		  	</section>
-		  	<section class="opinion_form">
-		    	<%= render 'shared/opinion_form' %>
-		  	</section>
-		</aside>
-	</div>
-</center>
-
-<div class="col-md-8">
-	<% if @user.opinions.any? %>
-	 	<h3>opinions (<%= @user.opinions.count %>)</h3>
-	  	<ol class="opinions">
-	    	<%= render @opinions %>
-	  	</ol>
-	<% end %>
+<div class = "mdl-cell--12-col mdl-grid ">
+	<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+  		<input type="checkbox" id="icon-toggle-1" onclick="showOpinions()" class="mdl-icon-toggle__input">
+  		<h5 class="mdl-icon-toggle__label">Deixe sua opinião aqui! \/ </h5>
+	</label>
 </div>
+
+<div class = "mdl-cell--12-col mdl-grid ">
+	<div class = "mdl-cell mdl-cell--1-col"></div>
+	<div class = "alignForm">
+		<%= render 'shared/opinion_form'%>
+	</div>
+</div>
+<div class = "mdl-cell--12-col mdl-grid">
+	<div class = "mdl-cell mdl-cell--4-col"></div>
+	<div class = "mdl-cell mdl-cell--4-col">
+		<% if @law.opinions.any? %>
+		 	<table class="mdl-data-table mdl-js-data-table mdl-data-table">
+				<tbody>
+	 				<% @opinions.each do |opinion| %>
+	    				<%= render opinion %>
+	 				<%end%>
+		 		</tbody>
+		 	</table>
+		<% end %>
+	</div>
+</div>
+
 

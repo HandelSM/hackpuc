@@ -14,14 +14,15 @@
  *= require_self
  *= require material
  */
-.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored{
+.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+{
 	background-color:#69F0AE;
 }
-.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--coloredRed{
+.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--coloredRed
+{
 	color: white;
 	background-color:#F44336;
 }
-.center{
-    margin-left: auto;
-    margin-right: auto;
-}
+.mdl-icon-toggle__label{width: auto !important; height: auto !important}
+
+.alignForm input{float:right; margin-top: 45px;}
