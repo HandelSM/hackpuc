@@ -4,8 +4,7 @@ class LawsController < ApplicationController
   # GET /laws
   # GET /laws.json
   def index
-    @laws = Law.all    
-    @laws.sort_by{ |h| h[:get_likes.size] }
+    @laws = Law.order(cached_votes_up: :desc).each
   end
 
   # GET /laws/1
