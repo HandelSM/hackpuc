@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212151417) do
+ActiveRecord::Schema.define(version: 20151213002423) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -26,11 +26,20 @@ ActiveRecord::Schema.define(version: 20151212151417) do
 
   create_table "laws", force: :cascade do |t|
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "topic_id"
     t.integer  "politician_id"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
+
+  add_index "laws", ["cached_votes_down"], name: "index_laws_on_cached_votes_down"
+  add_index "laws", ["cached_votes_score"], name: "index_laws_on_cached_votes_score"
+  add_index "laws", ["cached_votes_total"], name: "index_laws_on_cached_votes_total"
+  add_index "laws", ["cached_votes_up"], name: "index_laws_on_cached_votes_up"
 
   create_table "laws_topics", force: :cascade do |t|
     t.integer "law_id"
