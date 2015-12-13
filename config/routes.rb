@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  get    'estatistica' => 'laws#index'
   get    'semLeis' => 'laws#noLaws'
   get    'lawNext' => 'laws#nextLaw'
   get    'signup'  => 'users#new'

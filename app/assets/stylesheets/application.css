@@ -17,10 +17,16 @@
 .mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored{
 	background-color:#69F0AE;
 }
+
 .mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--coloredRed{
 	color: white;
 	background-color:#F44336;
 }
+
+.mdl-checkbox__input.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect.mdl-checkbox__label{
+	margin-left: 400px !important;
+}
+
 .center{
     margin-left: auto;
     margin-right: auto;
