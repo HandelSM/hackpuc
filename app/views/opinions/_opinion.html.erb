@@ -2,5 +2,14 @@
     <td class="mdl-data-table__cell--non-numeric">
     	<strong><%= opinion.user.name%></strong><br>
     	<%= opinion.content %>
+		<div class = "mdl-cell mdl-cell--1-col">
+			<%= link_to like_opinion_path(opinion), method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" do %>
+				 <i class="material-icons">thumb_up</i>
+			<%end%><span style="margin-left:10%"><%= opinion.get_likes.size%></span>
+
+			<%= link_to dislike_opinion_path(opinion) , method: :put, class: "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab", style: "margin-left: 90%" do %>
+				 <i class="material-icons">thumb_down</i>
+			<%end%><span style="margin-left:10%"><%= opinion.get_dislikes.size %></span>
+		</div>
     </td>
 </tr>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :opinions,          only: [:create, :destroy]
+  resources :opinions,          only: [:create, :destroy] do
+    member do
+      put "like", to: "opinions#like"
+      put "dislike", to: "opinions#dislike"
+    end
+  end
   resources :laws do
     member do
       put "like", to: "laws#like"

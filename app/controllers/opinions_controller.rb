@@ -19,6 +19,21 @@ class OpinionsController < ApplicationController
     end
   end
 
+  def like
+    @opinion = Opinion.find(params[:id])
+    if not(current_user.voted_for? @opinion) then
+      @opinion.liked_by current_user
+    end
+    redirect_to @opinion.law
+  end
+
+  def dislike
+    @opinion = Opinion.find(params[:id])
+    if not(current_user.voted_for? @opinion) then
+      @opinion.disliked_by current_user
+    end
+    redirect_to @opinion.law
+  end
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def opinion_params
