@@ -1,22 +1,39 @@
 <% provide(:title, "Entrar") %>
-<h1>Entrar</h1>
 
-<div class="row">
-    <%= form_for(:session, url: login_path) do |f| %>
+<center>
+  <h3>NOME_DO_PROJETO</h3>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+  <div class="row">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :password, "Senha" %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= f.label :email, class: "mdl-textfield__label" %>
+          <%= f.email_field :email, class: "mdl-textfield__input" %>
+        </div>
 
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span>Lembrar-me</span>
+        <br>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= f.label :password, "Senha", class: "mdl-textfield__label" %>
+          <%= f.password_field :password, class: "mdl-textfield__input" %>
+        </div>
+
+        <br>
+
+        <%= f.label :remember_me,  class: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect centralize" do %>
+          <%= f.check_box :remember_me, class: "mdl-checkbox__input " %>
+          <span class="mdl-checkbox__label centralizeLabel">Lembrar-me</span>
+        <% end %>
+
+        <br> 
+        <br>
+        
+        <%= f.submit "Entrar", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--waterfall" %>
       <% end %>
 
-      <%= f.submit "Entrar" %>
-    <% end %>
+      <br>
 
-    <p>Novo usuário? <%= link_to "Inscreva-se!", signup_path %></p>
-</div>
+      <p>Novo usuário? <%= link_to "Inscreva-se!", signup_path, class: "mdl-button mdl-js-button mdl-js-ripple-effect" %></p>
+  </div>
+
+</center>
